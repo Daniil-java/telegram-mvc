@@ -1,0 +1,9 @@
+spring:
+  application:
+    name: simple-bot
+
+telegram-mvc:
+  bots:
+    simple:
+      token: ${SIMPLE_BOT_TOKEN:}
+      username: ${SIMPLE_BOT_USERNAME:}
