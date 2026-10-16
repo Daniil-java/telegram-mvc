@@ -4,14 +4,16 @@
 
 Annotation-driven Telegram bots for Spring Boot, in the style of Spring MVC.
 
-> Work in progress. Nothing below works yet; this is the target API.
+> Work in progress. Commands and buttons work; handler parameters, media, input and error
+> handling are coming — see the roadmap.
 
 ```java
 @BotController(bot = "simple")
 public class MenuController {
 
     @CommandHandler("/start")
-    public View start() {
+    @ActionHandler("nav:main")
+    public View start() {          // a command sends a new message
         return View.text("Choose an action:")
                 .row().button("Show time", "time:show")
                 .build();
@@ -29,6 +31,19 @@ public class MenuController {
 Handlers return a `View` instead of calling the Telegram API. The library routes updates,
 injects arguments, renders the view (send or edit, with fallbacks for Telegram's edit errors)
 and turns exceptions into user-facing messages.
+
+Configure the bot in `application.yaml`:
+
+```yaml
+telegram-mvc:
+  bots:
+    simple:                       # the name used in @BotController(bot = "simple")
+      token: ${SIMPLE_BOT_TOKEN}
+      username: ${SIMPLE_BOT_USERNAME}
+```
+
+Mistakes in controllers stop the application at startup: two handlers for the same command,
+a controller for a bot that is not configured, an unsupported parameter or return type.
 
 ## Modules
 

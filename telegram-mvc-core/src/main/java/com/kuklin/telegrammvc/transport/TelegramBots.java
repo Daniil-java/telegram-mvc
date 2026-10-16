@@ -21,7 +21,7 @@ import java.util.concurrent.Executors;
  * Enabled bots from the configuration: their clients, polling sessions and the shared handling pool.
  * Polling starts after the application context is ready and stops first on shutdown.
  */
-public class TelegramBots implements SmartLifecycle {
+public class TelegramBots implements BotClients, SmartLifecycle {
 
     private static final Logger log = LoggerFactory.getLogger(TelegramBots.class);
 
@@ -57,9 +57,7 @@ public class TelegramBots implements SmartLifecycle {
         return Collections.unmodifiableSet(clients.keySet());
     }
 
-    /**
-     * @throws IllegalArgumentException if there is no enabled bot with this name
-     */
+    @Override
     public BotClient client(String botName) {
         BotClient client = clients.get(botName);
         if (client == null) {
