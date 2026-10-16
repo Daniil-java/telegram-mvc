@@ -91,16 +91,16 @@ com.kuklin.telegrammvc
 
 Цель: сценарии 1 и 2 из проектного документа: команда → новое сообщение, кнопка → редактирование.
 
-- [ ] **T2.1 Аннотации.** `@CommandHandler(value, description, hidden)`, `@ActionHandler(value)`. `@BotController(bot)` уже есть.
-- [ ] **T2.2 `BotContext`.** Неизменяемый объект: имя бота, `UpdateType` (COMMAND, ACTION, TEXT, MEDIA, OTHER), chatId, `ChatUser` (id, username, имя, язык), messageId, routeKey, args, исходный `Update`.
-- [ ] **T2.3 `UpdateContextFactory`.** Update → BotContext. Команда: отрезать `@botname`, отделить аргументы. Callback: data как routeKey.
-- [ ] **T2.4 `HandlerRegistry`.** Сканирует бины с `@BotController` после инициализации контекста (`SmartInitializingSingleton`). Таблица `bot → (тип, ключ) → HandlerMethod`. Дубликат ключа в одном боте — ошибка старта с указанием обоих методов. Контроллер для бота, которого нет в конфигурации, — тоже ошибка.
-- [ ] **T2.5 `MethodInvoker`.** Вызов через `MethodHandle`, подготовленный при старте. На этом этапе поддерживаются параметры `BotContext` и отсутствие параметров.
-- [ ] **T2.6 `View` (минимум).** `View.text(...)` → builder: `row()`, `button(text, data)`, `urlButton`, `strategy(...)`, `build()`. Неизменяемый.
-- [ ] **T2.7 `ViewRenderer` (минимум).** `NEW` → `SendMessage`, `EDIT` → `EditMessageText`. `AUTO`: команда → NEW, кнопка → EDIT. На каждый callback ровно один `answerCallbackQuery`.
-- [ ] **T2.8 `UpdateDispatcher`.** Собирает цепочку: контекст → поиск хендлера → вызов → рендер. Не нашёл хендлер — лог и пустой ответ на callback.
-- [ ] **T2.9 Тесты.** Реестр (поиск, дубликаты), фабрика контекста (разбор команд с `@botname` и аргументами), рендерер с подменённым `BotClient`.
-- [ ] **T2.10 Пример.** `simple-bot`: меню `/start` с двумя кнопками и «Назад» — пример из README становится рабочим.
+- [x] **T2.1 Аннотации.** `@CommandHandler(value, description, hidden)`, `@ActionHandler(value)`. `@BotController(bot)` уже есть.
+- [x] **T2.2 `BotContext`.** Неизменяемый объект: имя бота, `UpdateType` (COMMAND, ACTION, TEXT, MEDIA, OTHER), chatId, `ChatUser` (id, username, имя, язык), messageId, routeKey, args, исходный `Update`.
+- [x] **T2.3 `UpdateContextFactory`.** Update → BotContext. Команда: отрезать `@botname`, отделить аргументы. Callback: data как routeKey.
+- [x] **T2.4 `HandlerRegistry`.** Сканирует бины с `@BotController` после инициализации контекста (`SmartInitializingSingleton`). Таблица `bot → (тип, ключ) → HandlerMethod`. Дубликат ключа в одном боте — ошибка старта с указанием обоих методов. Контроллер для бота, которого нет в конфигурации, — тоже ошибка.
+- [x] **T2.5 `MethodInvoker`.** Вызов через `MethodHandle`, подготовленный при старте. На этом этапе поддерживаются параметры `BotContext` и отсутствие параметров.
+- [x] **T2.6 `View` (минимум).** `View.text(...)` → builder: `row()`, `button(text, data)`, `urlButton`, `strategy(...)`, `build()`. Неизменяемый.
+- [x] **T2.7 `ViewRenderer` (минимум).** `NEW` → `SendMessage`, `EDIT` → `EditMessageText`. `AUTO`: команда → NEW, кнопка → EDIT. На каждый callback ровно один `answerCallbackQuery`.
+- [x] **T2.8 `UpdateDispatcher`.** Собирает цепочку: контекст → поиск хендлера → вызов → рендер. Не нашёл хендлер — лог и пустой ответ на callback.
+- [x] **T2.9 Тесты.** Реестр (поиск, дубликаты), фабрика контекста (разбор команд с `@botname` и аргументами), рендерер с подменённым `BotClient`.
+- [x] **T2.10 Пример.** `simple-bot`: меню `/start` с двумя кнопками и «Назад» — пример из README становится рабочим.
 
 **Готово, когда:** пример из README работает в Telegram без изменений кода.
 
