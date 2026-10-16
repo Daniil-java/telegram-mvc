@@ -1,5 +1,7 @@
 # telegram-mvc
 
+[![Build](https://github.com/Daniil-java/telegram-mvc/actions/workflows/build.yml/badge.svg)](https://github.com/Daniil-java/telegram-mvc/actions/workflows/build.yml)
+
 Annotation-driven Telegram bots for Spring Boot, in the style of Spring MVC.
 
 > Work in progress. Nothing below works yet; this is the target API.
@@ -37,7 +39,7 @@ and turns exceptions into user-facing messages.
 
 ## Roadmap
 
-See [docs/ROADMAP.md](docs/ROADMAP.md).
+See [docs/ROADMAP.md](docs/ROADMAP.md). Design notes (in Russian): [docs/design.md](docs/design.md).
 
 ## Build
 

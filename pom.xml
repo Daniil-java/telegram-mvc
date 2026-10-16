@@ -19,6 +19,8 @@
     <name>telegram-mvc</name>
     <description>Annotation-driven Telegram bots for Spring Boot, in the style of Spring MVC</description>
 
+    <url>https://github.com/Daniil-java/telegram-mvc</url>
+
     <licenses>
         <license>
             <name>Apache License, Version 2.0</name>
@@ -32,6 +34,11 @@
             <name>Daniil Kuklin</name>
         </developer>
     </developers>
+
+    <scm>
+        <url>https://github.com/Daniil-java/telegram-mvc</url>
+        <connection>scm:git:https://github.com/Daniil-java/telegram-mvc.git</connection>
+    </scm>
 
     <modules>
         <module>telegram-mvc-core</module>
